@@ -108,7 +108,7 @@ Notes:
 
 - Use `alias` to create shortcuts for commonly used commands. For example, `alias ll='ls -latr'` creates a new alias `ll`.
 
-- Save aliases, shell settings, and functions you commonly use in `~/.bashrc`, and [arrange for login shells to source it](http://superuser.com/a/183980/7106). This will make your setup available in all your shell sessions.
+- Save aliases, shell settings, and functions you commonly use in `~/.bashrc`, and [arrange for login shells to source it]. This will make your setup available in all your shell sessions.
 
 - Put the settings of environment variables as well as commands that should be executed when you login in `~/.bash_profile`. Separate configuration will be needed for shells you launch from graphical environment logins and `cron` jobs.
 
@@ -147,7 +147,7 @@ Notes:
 }
 ```
 
-- A "here document" allows [redirection of multiple lines of input](https://www.tldp.org/LDP/abs/html/here-docs.html) as if from a file:
+- A "here document" allows [redirection of multiple lines of input] as if from a file:
 ```
 cat <<EOF
 input
@@ -159,7 +159,7 @@ EOF
 
 - Use `man ascii` for a good ASCII table, with hex and decimal values. For general encoding info, `man unicode`, `man utf-8`, and `man latin1` are helpful.
 
-- Use `screen` or [`tmux`](https://tmux.github.io/) to multiplex the screen, especially useful on remote ssh sessions and to detach and re-attach to a session. `byobu` can enhance screen or tmux by providing more information and easier management. A more minimal alternative for session persistence only is [`dtach`](https://github.com/bogner/dtach).
+- Use `screen` or [`tmux`] to multiplex the screen, especially useful on remote ssh sessions and to detach and re-attach to a session. `byobu` can enhance screen or tmux by providing more information and easier management. A more minimal alternative for session persistence only is [`dtach`].
 
 - In ssh, knowing how to port tunnel with `-L` or `-D` (and occasionally `-R`) is useful, e.g. to access web sites from a remote server.
 
@@ -176,16 +176,16 @@ EOF
 
 - A few other options relevant to ssh are security sensitive and should be enabled with care, e.g. per subnet or host or in trusted networks: `StrictHostKeyChecking=no`, `ForwardAgent=yes`
 
-- Consider [`mosh`](https://mosh.mit.edu/) an alternative to ssh that uses UDP, avoiding dropped connections and adding convenience on the road (requires server-side setup).
+- Consider [`mosh`]an alternative to ssh that uses UDP, avoiding dropped connections and adding convenience on the road (requires server-side setup).
 
 - To get the permissions on a file in octal form, which is useful for system configuration but not available in `ls` and easy to bungle, use something like
 ```sh
       stat -c '%A %a %n' /etc/timezone
 ```
 
-- For interactive selection of values from the output of another command, use [`percol`](https://github.com/mooz/percol) or [`fzf`](https://github.com/junegunn/fzf).
+- For interactive selection of values from the output of another command, use [`percol`] or [`fzf`].
 
-- For interaction with files based on the output of another command (like `git`), use `fpp` ([PathPicker](https://github.com/facebook/PathPicker)).
+- For interaction with files based on the output of another command (like `git`), use `fpp` ([PathPicker]).
 
 - For a simple web server for all files in the current directory (and subdirs), available to anyone on your network, use:
 `python -m SimpleHTTPServer 7777` (for port 7777 and Python 2) and `python -m http.server 7777` (for port 7777 and Python 3).
@@ -207,21 +207,21 @@ EOF
 
 - To locate a file by name in the current directory, `find . -iname '*something*'` (or similar). To find a file anywhere by name, use `locate something` (but bear in mind `updatedb` may not have indexed recently created files).
 
-- For general searching through source or data files, there are several options more advanced or faster than `grep -r`, including (in rough order from older to newer) [`ack`](https://github.com/beyondgrep/ack2), [`ag`](https://github.com/ggreer/the_silver_searcher) ("the silver searcher"), and [`rg`](https://github.com/BurntSushi/ripgrep) (ripgrep).
+- For general searching through source or data files, there are several options more advanced or faster than `grep -r`, including (in rough order from older to newer) [`ack`]), [`ag`] ("the silver searcher"), and [`rg`] (ripgrep).
 
 - To convert HTML to text: `lynx -dump -stdin`
 
-- For Markdown, HTML, and all kinds of document conversion, try [`pandoc`](http://pandoc.org/). For example, to convert a Markdown document to Word format: `pandoc README.md --from markdown --to docx -o temp.docx`
+- For Markdown, HTML, and all kinds of document conversion, try [`pandoc`]. For example, to convert a Markdown document to Word format: `pandoc README.md --from markdown --to docx -o temp.docx`
 
 - If you must handle XML, `xmlstarlet` is old but good.
 
-- For JSON, use [`jq`](http://stedolan.github.io/jq/). For interactive use, also see [`jid`](https://github.com/simeji/jid) and [`jiq`](https://github.com/fiatjaf/jiq).
+- For JSON, use [`jq`]. For interactive use, also see [`jid`] and [`jiq`].
 
-- For YAML, use [`shyaml`](https://github.com/0k/shyaml).
+- For YAML, use [`shyaml`].
 
-- For Excel or CSV files, [csvkit](https://github.com/onyxfish/csvkit) provides `in2csv`, `csvcut`, `csvjoin`, `csvgrep`, etc.
+- For Excel or CSV files, [csvkit] provides `in2csv`, `csvcut`, `csvjoin`, `csvgrep`, etc.
 
-- For Amazon S3, [`s3cmd`](https://github.com/s3tools/s3cmd) is convenient and [`s4cmd`](https://github.com/bloomreach/s4cmd) is faster. Amazon's [`aws`](https://github.com/aws/aws-cli) and the improved [`saws`](https://github.com/donnemartin/saws) are essential for other AWS-related tasks.
+- For Amazon S3, [`s3cmd`] is convenient and [`s4cmd`] is faster. Amazon's [`aws`] and the improved [`saws`] are essential for other AWS-related tasks.
 
 - Know about `sort` and `uniq`, including uniq's `-u` and `-d` options -- see one-liners below. See also `comm`.
 
@@ -231,7 +231,7 @@ EOF
 
 - Know about `tee` to copy from stdin to a file and also to stdout, as in `ls -al | tee file.txt`.
 
-- For more complex calculations, including grouping, reversing fields, and statistical calculations, consider [`datamash`](https://www.gnu.org/software/datamash/).
+- For more complex calculations, including grouping, reversing fields, and statistical calculations, consider [`datamash`].
 
 - Know that locale affects a lot of command line tools in subtle ways, including sorting order (collation) and performance. Most Linux installations will set `LANG` or other locale variables to a local setting like US English. But be aware sorting will change if you change locale. And know i18n routines can make sort or other commands run *many times* slower. In some situations (such as the set operations or uniqueness operations below) you can safely ignore slow i18n routines entirely and use traditional byte-based sort order, using `export LC_ALL=C`.
 
@@ -244,7 +244,7 @@ EOF
       perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
 ```
 
-- To rename multiple files and/or search and replace within files, try [`repren`](https://github.com/jlevy/repren). (In some cases the `rename` command also allows multiple renames, but be careful as its functionality is not the same on all Linux distributions.)
+- To rename multiple files and/or search and replace within files, try [`repren`]. (In some cases the `rename` command also allows multiple renames, but be careful as its functionality is not the same on all Linux distributions.)
 ```sh
       # Full rename of filenames, directories, and contents foo -> bar:
       repren --full --preserve-case --from foo --to bar .
@@ -254,12 +254,12 @@ EOF
       rename 's/\.bak$//' *.bak
 ```
 
-- As the man page says, `rsync` really is a fast and extraordinarily versatile file copying tool. It's known for synchronizing between machines but is equally useful locally. When security restrictions allow, using `rsync` instead of `scp` allows recovery of a transfer without restarting from scratch. It also is among the [fastest ways](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html) to delete large numbers of files:
+- As the man page says, `rsync` really is a fast and extraordinarily versatile file copying tool. It's known for synchronizing between machines but is equally useful locally. When security restrictions allow, using `rsync` instead of `scp` allows recovery of a transfer without restarting from scratch. It also is among the [fastest ways] to delete large numbers of files:
 ```sh
 mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 ```
 
-- For monitoring progress when processing files, use [`pv`](http://www.ivarch.com/programs/pv.shtml), [`pycp`](https://github.com/dmerejkowsky/pycp), [`pmonitor`](https://github.com/dspinellis/pmonitor), [`progress`](https://github.com/Xfennec/progress), `rsync --progress`, or, for block-level copying, `dd status=progress`.
+- For monitoring progress when processing files, use [`pv`], [`pycp`], [`pmonitor`], [`progress`], `rsync --progress`, or, for block-level copying, `dd status=progress`.
 
 - Use `shuf` to shuffle or select random lines from a file.
 
@@ -286,7 +286,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - To split files into pieces, see `split` (to split by size) and `csplit` (to split by a pattern).
 
-- Date and time: To get the current date and time in the helpful [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format, use `date -u +"%Y-%m-%dT%H:%M:%SZ"` (other options [are](https://stackoverflow.com/questions/7216358/date-command-on-os-x-doesnt-have-iso-8601-i-option) [problematic](https://unix.stackexchange.com/questions/164826/date-command-iso-8601-option)). To manipulate date and time expressions, use `dateadd`, `datediff`, `strptime` etc. from [`dateutils`](http://www.fresse.org/dateutils/).
+- Date and time: To get the current date and time in the helpful [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format, use `date -u +"%Y-%m-%dT%H:%M:%SZ"`  To manipulate date and time expressions, use `dateadd`, `datediff`, `strptime` etc. from [`dateutils`].
 
 - Use `zless`, `zmore`, `zcat`, and `zgrep` to operate on compressed files.
 
@@ -298,43 +298,43 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
    setfacl --restore=permissions.txt
 ```
 
-- To create empty files quickly, use `truncate` (creates [sparse file](https://en.wikipedia.org/wiki/Sparse_file)), `fallocate` (ext4, xfs, btrfs and ocfs2 filesystems), `xfs_mkfile` (almost any filesystems, comes in xfsprogs package), `mkfile` (for Unix-like systems like Solaris, Mac OS).
+- To create empty files quickly, use `truncate` , `fallocate` (ext4, xfs, btrfs and ocfs2 filesystems), `xfs_mkfile` (almost any filesystems, comes in xfsprogs package), `mkfile` (for Unix-like systems like Solaris, Mac OS).
 
 ## System debugging
 
-- For web debugging, `curl` and `curl -I` are handy, or their `wget` equivalents, or the more modern [`httpie`](https://github.com/jkbrzt/httpie).
+- For web debugging, `curl` and `curl -I` are handy, or their `wget` equivalents, or the more modern [`httpie`].
 
 - To know current cpu/disk status, the classic tools are `top` (or the better `htop`), `iostat`, and `iotop`. Use `iostat -mxz 15` for basic CPU and detailed per-partition disk stats and performance insight.
 
 - For network connection details, use `netstat` and `ss`.
 
-- For a quick overview of what's happening on a system, `dstat` is especially useful. For broadest overview with details, use [`glances`](https://github.com/nicolargo/glances).
+- For a quick overview of what's happening on a system, `dstat` is especially useful. For broadest overview with details, use [`glances`].
 
 - To know memory status, run and understand the output of `free` and `vmstat`. In particular, be aware the "cached" value is memory held by the Linux kernel as file cache, so effectively counts toward the "free" value.
 
-- Java system debugging is a different kettle of fish, but a simple trick on Oracle's and some other JVMs is that you can run `kill -3 <pid>` and a full stack trace and heap summary (including generational garbage collection details, which can be highly informative) will be dumped to stderr/logs. The JDK's `jps`, `jstat`, `jstack`, `jmap` are useful. [SJK tools](https://github.com/aragozin/jvm-tools) are more advanced.
+- Java system debugging is a different kettle of fish, but a simple trick on Oracle's and some other JVMs is that you can run `kill -3 <pid>` and a full stack trace and heap summary (including generational garbage collection details, which can be highly informative) will be dumped to stderr/logs. The JDK's `jps`, `jstat`, `jstack`, `jmap` are useful. [SJK tools] are more advanced.
 
-- Use [`mtr`](http://www.bitwizard.nl/mtr/) as a better traceroute, to identify network issues.
+- Use [`mtr`] as a better traceroute, to identify network issues.
 
-- For looking at why a disk is full, [`ncdu`](https://dev.yorhel.nl/ncdu) saves time over the usual commands like `du -sh *`.
+- For looking at why a disk is full, [`ncdu`] saves time over the usual commands like `du -sh *`.
 
-- To find which socket or process is using bandwidth, try [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) or [`nethogs`](https://github.com/raboof/nethogs).
+- To find which socket or process is using bandwidth, try [`iftop`] or [`nethogs`].
 
 - The `ab` tool (comes with Apache) is helpful for quick-and-dirty checking of web server performance. For more complex load testing, try `siege`.
 
-- For more serious network debugging, [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html), or [`ngrep`](http://ngrep.sourceforge.net/).
+- For more serious network debugging, [`wireshark`], [`tshark`], or [`ngrep`].
 
 - Know about `strace` and `ltrace`. These can be helpful if a program is failing, hanging, or crashing, and you don't know why, or if you want to get a general idea of performance. Note the profiling option (`-c`), and the ability to attach to a running process (`-p`). Use trace child option (`-f`) to avoid missing important calls.
 
-- Know about `ldd` to check shared libraries etc — but [never run it on untrusted files](http://www.catonmat.net/blog/ldd-arbitrary-code-execution/).
+- Know about `ldd` to check shared libraries etc — but [never run it on untrusted files].
 
 - Know how to connect to a running process with `gdb` and get its stack traces.
 
 - Use `/proc`. It's amazingly helpful sometimes when debugging live problems. Examples: `/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (where `xxx` is the process id or pid).
 
-- When debugging why something went wrong in the past, [`sar`](http://sebastien.godard.pagesperso-orange.fr/) can be very helpful. It shows historic statistics on CPU, memory, network, etc.
+- When debugging why something went wrong in the past, [`sar`] can be very helpful. It shows historic statistics on CPU, memory, network, etc.
 
-- For deeper systems and performance analyses, look at `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](https://en.wikipedia.org/wiki/Perf_%28Linux%29), and [`sysdig`](https://github.com/draios/sysdig).
+- For deeper systems and performance analyses, look at `stap` ([SystemTap]), [`perf`], and [`sysdig`].
 
 - Check what OS you're on with `uname` or `uname -a` (general Unix/kernel info) or `lsb_release -a` (Linux distro info).
 
@@ -429,7 +429,7 @@ A few examples of piecing together commands:
 
 - `factor`: factor integers
 
-- [`gpg`](https://gnupg.org/): encrypt and sign files
+- [`gpg`]: encrypt and sign files
 
 - `toe`: table of terminfo entries
 
@@ -437,7 +437,7 @@ A few examples of piecing together commands:
 
 - `socat`: socket relay and tcp port forwarder (similar to `netcat`)
 
-- [`slurm`](https://github.com/mattthias/slurm): network traffic visualization
+- [`slurm`]: network traffic visualization
 
 - `dd`: moving data between files or devices
 
@@ -457,7 +457,7 @@ A few examples of piecing together commands:
 
 - `watch`: run a command repeatedly, showing results and/or highlighting changes
 
-- [`when-changed`](https://github.com/joh/when-changed): runs any command you specify whenever it sees file changed. See `inotifywait` and `entr` as well.
+- [`when-changed`]: runs any command you specify whenever it sees file changed. See `inotifywait` and `entr` as well.
 
 - `tac`: print files in reverse
 
@@ -483,19 +483,19 @@ A few examples of piecing together commands:
 
 - `nm`: symbols from object files
 
-- `ab` or [`wrk`](https://github.com/wg/wrk): benchmarking web servers
+- `ab` or [`wrk`]: benchmarking web servers
 
 - `strace`: system call debugging
 
-- [`mtr`](http://www.bitwizard.nl/mtr/): better traceroute for network debugging
+- [`mtr`]: better traceroute for network debugging
 
 - `cssh`: visual concurrent shell
 
 - `rsync`: sync files and folders over SSH or in local file system
 
-- [`wireshark`](https://wireshark.org/) and [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html): packet capture and network debugging
+- [`wireshark`] and [`tshark`]: packet capture and network debugging
 
-- [`ngrep`](http://ngrep.sourceforge.net/): grep for the network layer
+- [`ngrep`]: grep for the network layer
 
 - `host` and `dig`: DNS lookups
 
@@ -503,7 +503,7 @@ A few examples of piecing together commands:
 
 - `dstat`: useful system stats
 
-- [`glances`](https://github.com/nicolargo/glances): high level, multi-subsystem overview
+- [`glances`]: high level, multi-subsystem overview
 
 - `iostat`: Disk usage stats
 
@@ -519,9 +519,9 @@ A few examples of piecing together commands:
 
 - `id`: user/group identity info
 
-- [`sar`](http://sebastien.godard.pagesperso-orange.fr/): historic system stats
+- [`sar`]: historic system stats
 
-- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) or [`nethogs`](https://github.com/raboof/nethogs): network utilization by socket or process
+- [`iftop`] or [`nethogs`]: network utilization by socket or process
 
 - `ss`: socket statistics
 
@@ -564,13 +564,13 @@ These items are relevant *only* on Windows.
 
 ### Ways to obtain Unix tools under Windows
 
-- Access the power of the Unix shell under Microsoft Windows by installing [Cygwin](https://cygwin.com/). Most of the things described in this document will work out of the box.
+- Access the power of the Unix shell under Microsoft Windows by installing [Cygwin]. Most of the things described in this document will work out of the box.
 
-- On Windows 10, you can use [Windows Subsystem for Linux (WSL)](https://msdn.microsoft.com/commandline/wsl/about), which provides a familiar Bash environment with Unix command line utilities.
+- On Windows 10, you can use [Windows Subsystem for Linux (WSL)], which provides a familiar Bash environment with Unix command line utilities.
 
-- If you mainly want to use GNU developer tools (such as GCC) on Windows, consider [MinGW](http://www.mingw.org/) and its [MSYS](http://www.mingw.org/wiki/msys) package, which provides utilities such as bash, gawk, make and grep. MSYS doesn't have all the features compared to Cygwin. MinGW is particularly useful for creating native Windows ports of Unix tools.
+- If you mainly want to use GNU developer tools (such as GCC) on Windows, consider [MinGW] and its [MSYS] package, which provides utilities such as bash, gawk, make and grep. MSYS doesn't have all the features compared to Cygwin. MinGW is particularly useful for creating native Windows ports of Unix tools.
 
-- Another option to get Unix look and feel under Windows is [Cash](https://github.com/dthree/cash). Note that only very few Unix commands and command-line options are available in this environment.
+- Another option to get Unix look and feel under Windows is [Cash]. Note that only very few Unix commands and command-line options are available in this environment.
 
 ### Useful Windows command-line tools
 
@@ -578,7 +578,7 @@ These items are relevant *only* on Windows.
 
 - Native command-line Windows networking tools you may find useful include `ping`, `ipconfig`, `tracert`, and `netstat`.
 
-- You can perform [many useful Windows tasks](http://www.thewindowsclub.com/rundll32-shortcut-commands-windows) by invoking the `Rundll32` command.
+- You can perform [many useful Windows tasks] by invoking the `Rundll32` command.
 
 ### Cygwin tips and tricks
 
